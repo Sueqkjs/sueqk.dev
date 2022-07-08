@@ -17,5 +17,5 @@ footer {
 }
 
 img {
-  object-fit: scale-down;
+  max-width: min(100%,360px) !important;
 }
