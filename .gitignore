@@ -9,5 +9,4 @@ node_modules
 .vercel
 .output
 .cloudflare
-src/lib/constants.ts
 wrangler.toml
