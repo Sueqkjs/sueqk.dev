@@ -1,0 +1,24 @@
+<script lang="ts">
+  import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Container } from "sveltestrap";
+</script>
+
+<Navbar color="dark" dark expand="md">
+  <NavbarBrand href="/">Sueqkjs</NavbarBrand>
+  <Nav class="ms-auto" navbar>
+    <NavItem>
+      <NavLink href="/about">About</NavLink>
+    </NavItem>
+    <NavItem>
+      <NavLink href="/articles">Blog</NavLink>
+    </NavItem>
+  </Nav>
+</Navbar>
+<Container>
+  <main>
+    <slot />
+  </main>
+</Container>
+
+<footer class="center fixed-bottom">
+  <p>このサイトは<a href="https://kit.svelte.dev">SvelteKit</a>と<a href="https://sveltestrap.js.org">SvelteStrap</a>と<a href="https://microcms.io/">microCMS</a>を使用していて、<a href="https://workers.dev">Cloudflare Workers</a>上で動いています。</p>
+</footer>
