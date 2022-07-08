@@ -19,3 +19,8 @@ footer {
 img {
   max-width: min(100%,360px) !important;
 }
+
+.static {
+  position: static;
+  height: 4rem;
+}
