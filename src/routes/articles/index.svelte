@@ -7,9 +7,7 @@
 
   onMount(async () => {
     articles = (
-      await client.get({
-        endpoint: "articles"
-      })
+      await client.get({})
     ).contents;
   });
 </script>
