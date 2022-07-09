@@ -21,5 +21,5 @@
 <div class="static" />
 
 <footer class="center fixed-bottom">
-  <p>このサイトは<a href="https://kit.svelte.dev">SvelteKit</a>と<a href="https://sveltestrap.js.org">SvelteStrap</a>と<a href="https://microcms.io/">microCMS</a>を使用していて、<a href="https://workers.dev">Cloudflare Workers</a>上で動いています。</p>
+  <p>このサイトは<a href="https://kit.svelte.dev">SvelteKit</a>と<a href="https://sveltestrap.js.org">SvelteStrap</a>と<a href="https://microcms.io/">microCMS</a>を使用していて、<a href="https://pages.dev">Cloudflare Pages</a>上で動いています。</p>
 </footer>
