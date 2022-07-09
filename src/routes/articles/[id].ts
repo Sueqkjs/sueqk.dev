@@ -5,9 +5,9 @@ export async function get({ params }: {params: Record<string, string>}): Promise
     .get({
       contentId: params.id
     })
-    .catch(console.error);
+    .catch(e => e.message);
 
-    if (article)
+    if (article.content)
     return {
       body: {
         article
@@ -15,6 +15,6 @@ export async function get({ params }: {params: Record<string, string>}): Promise
     };
 
   return {
-    status: 404
+    status: 400
   };
 }

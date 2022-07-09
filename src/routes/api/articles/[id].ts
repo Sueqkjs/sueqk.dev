@@ -21,12 +21,12 @@ async function apiRequest({
     .catch((e) => e.message);
 }
 
-export async function get({ params, env }: { params: Record<string, string>, env: Record<string, string> }) {
+export async function get({ params, platform }: { params: Record<string, string>, platform: any }) {
   let isList = params.id === "LIST";
 
   let res = await apiRequest({
-    apiKey: env.MICROCMS_API_KEY,
-    domain: env.DOMAIN,
+    apiKey: platform.env.MICROCMS_API_KEY,
+    domain: platform.env.DOMAIN,
     endpoint: "articles",
     contentId: isList ? void 0 : params.id
   });
