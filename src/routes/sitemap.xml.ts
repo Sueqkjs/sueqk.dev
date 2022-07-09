@@ -1,9 +1,6 @@
 import client from "$lib/client";
 
 export async function get() {
-  let parser = new DOMParser();
-  let ser = new XMLSerializer();
-
   let urls = [
     {
       loc: "https://sueqk.dev/",
@@ -24,13 +21,8 @@ export async function get() {
       changefreq: "monthly"
     }
   ];
-  const xml = parser.parseFromString(
-    `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>`,
-    "application/xml"
-  );
-  const articles = await client.get({}).catch(console.error);
 
+  const articles = await client.get({}).catch(console.error);
   if (articles) {
     for (let article of articles.contents) {
       const date = new Date(article.updatedAt);
@@ -43,23 +35,21 @@ export async function get() {
     }
   }
 
+  let child = "";
   for (let url of urls) {
-    const child = xml.createElement("url");
-    const fragment = xml.createDocumentFragment();
-    for(let [k, v] of Object.entries(url)) {
-      const el = xml.createElement(k);
-      el.innerText = v.toString();
-      fragment.appendChild(el);
+    let u = "";
+    for (let [k, v] of Object.entries(url)) {
+      u += `<${k}>${v}</${k}>`;
     }
-    child.appendChild(fragment);
-    xml.getElementsByTagName("urlset").item(0)!.appendChild(child);
+    child += `<url>${u}</url>`;
   }
 
   return {
     status: 200,
-    body: ser.serializeToString(xml),
+    body: `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${child}</urlset>`,
     headers: {
       "Content-type": "application/xml"
     }
-  }
+  };
 }
