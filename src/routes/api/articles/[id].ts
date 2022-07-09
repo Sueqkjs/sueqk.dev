@@ -1,4 +1,4 @@
-async function get({
+async function apiRequest({
   apiKey,
   domain,
   endpoint,
@@ -21,10 +21,10 @@ async function get({
     .catch((e) => e.message);
 }
 
-export async function onRequestGet({ params, env }: { params: Record<string, string>, env: Record<string, string> }) {
+export async function get({ params, env }: { params: Record<string, string>, env: Record<string, string> }) {
   let isList = params.id === "LIST";
 
-  let res = await get({
+  let res = await apiRequest({
     apiKey: env.MICROCMS_API_KEY,
     domain: env.DOMAIN,
     endpoint: "articles",
