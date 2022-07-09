@@ -34,7 +34,8 @@ export async function get({ params, platform }: { params: Record<string, string>
   return new Response(JSON.stringify(res), {
     status: res instanceof String ? 400 : 200,
     headers: {
-      "Content-type": "application/json"
+      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*"
     }
   });
 }
