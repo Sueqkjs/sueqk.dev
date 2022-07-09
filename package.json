@@ -28,6 +28,7 @@
   },
   "type": "module",
   "dependencies": {
+    "highlight.js": "^11.5.1",
     "sveltestrap": "^5.9.0"
   }
 }
