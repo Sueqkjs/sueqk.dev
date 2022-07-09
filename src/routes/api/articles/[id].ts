@@ -21,7 +21,7 @@ async function get({
     .catch((e) => e.message);
 }
 
-export async function onRequestGet({ params, env }) {
+export async function onRequestGet({ params, env }: { params: Record<string, string>, env: Record<string, string> }) {
   let isList = params.id === "LIST";
 
   let res = await get({
